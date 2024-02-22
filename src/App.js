@@ -1,18 +1,17 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { fetchUserData } from './redux/user/userSlice.js';
-import Great from './components/great.js';
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { fetchUserData } from './redux/user/userSlice';
+import Great from './components/great';
 
- const App = () => {
-    const dispatch = useDispatch();
-    useEffect(() => {
-      dispatch(fetchUserData());
-    }, [dispatch]);
+const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchUserData());
+  }, [dispatch]);
   return (
- 
+
     <Router>
       <Routes>
         <Route path="/" element={<Great />} />
@@ -20,6 +19,6 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
     </Router>
 
   );
-}
+};
 
 export default App;

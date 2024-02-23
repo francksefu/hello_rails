@@ -1,10 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const GREETING_URL = 'http://localhost:3000/greeting';
-
 export const fetchUserData = createAsyncThunk('user/fetchUserData', async () => {
-  const response = await axios.get(GREETING_URL);
+  const response = await axios.get('http://127.0.0.1:3000/greeting', {
+    headers: {
+      'Access-Control-Allow-Origin': true,
+    },
+  });
   return response.data;
 });
 const userSlice = createSlice({
